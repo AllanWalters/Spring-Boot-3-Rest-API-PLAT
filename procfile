@@ -1,0 +1,1 @@
+web: /usr/lib/jvm/java-17/bin/java -jar application.jar

@@ -1,0 +1,38 @@
+version: 0.2
+
+env:
+  variables:
+    APP_VERSION: BIGV1.0
+    APP_NAME: my-spring-boot-app
+
+phases:
+  install:
+    runtime-versions:
+      java: 17
+  pre_build:
+    commands:
+      - echo Entered the pre-build phase...
+      - which java
+      - java -version
+      - echo "Setting JAVA_HOME environment variable"
+      - export JAVA_HOME=/usr/lib/jvm/java-17
+      - export PATH=$JAVA_HOME/bin:$PATH
+      - mvn --version
+      - mvn clean
+      - aws --version
+      - echo "Setting application version to $APP_VERSION"
+  build:
+    commands:
+      - echo Entered the build phase...
+      - mvn package
+      - mv target/*.jar .
+  post_build:
+    commands:
+      - echo Entered the post-build phase...
+      - mvn test
+      - mvn integration-test
+
+artifacts:
+  files:
+    - '*.jar'
+    - Procfile
