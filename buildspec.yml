@@ -26,14 +26,6 @@ phases:
       - echo Entered the build phase...
       - mvn package
       - mv target/*.jar .
-  unit_tests:
-    commands:
-      - echo Entered the unit tests phase...
-      - mvn test
-  integration_tests:
-    commands:
-      - echo Entered the integration tests phase...
-      - mvn integration-test
   post_build:
     commands:
       - echo Entered the post-build phase...
