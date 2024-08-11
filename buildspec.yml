@@ -21,6 +21,11 @@ phases:
       - mvn clean
       - aws --version
       - echo "Setting application version to $APP_VERSION"
+  build:
+    commands:
+      - echo Entered the build phase...
+      - mvn package
+      - mv target/*.jar .
   unit_tests:
     commands:
       - echo Entered the unit tests phase...
@@ -29,11 +34,6 @@ phases:
     commands:
       - echo Entered the integration tests phase...
       - mvn integration-test
-  build:
-    commands:
-      - echo Entered the build phase...
-      - mvn package
-      - mv target/*.jar .
   post_build:
     commands:
       - echo Entered the post-build phase...
