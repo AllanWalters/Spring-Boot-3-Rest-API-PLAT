@@ -21,6 +21,14 @@ phases:
       - mvn clean
       - aws --version
       - echo "Setting application version to $APP_VERSION"
+  unit_tests:
+    commands:
+      - echo Entered the unit tests phase...
+      - mvn test
+  integration_tests:
+    commands:
+      - echo Entered the integration tests phase...
+      - mvn integration-test
   build:
     commands:
       - echo Entered the build phase...
@@ -29,8 +37,6 @@ phases:
   post_build:
     commands:
       - echo Entered the post-build phase...
-      - mvn test
-      - mvn integration-test
 
 artifacts:
   files:
