@@ -6,9 +6,6 @@ env:
     APP_NAME: my-spring-boot-app
 
 phases:
-  install:
-    runtime-versions:
-      java: 17
   pre_build:
     commands:
       - echo Entered the integration tests pre-build phase...
@@ -22,7 +19,8 @@ phases:
   build:
     commands:
       - echo Entered the integration tests build phase...
-      - java -jar target/*.jar --integration-test
+      - mvn integration-test
+
 reports:
   integration_tests:
     files:
