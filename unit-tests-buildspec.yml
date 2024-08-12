@@ -27,3 +27,9 @@ reports:
       - '**/TEST-*.xml'
     base-directory: 'target/surefire-reports'
     file-format: 'JUNIT'
+
+artifacts:
+  files:
+    - '**/TEST-*.xml'
+  base-directory: 'target/surefire-reports'
+  name: UnitTestsReport
