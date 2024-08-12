@@ -6,9 +6,6 @@ env:
     APP_NAME: my-spring-boot-app
 
 phases:
-  install:
-    runtime-versions:
-      java: 17
   pre_build:
     commands:
       - echo Entered the unit tests pre-build phase...
@@ -22,10 +19,11 @@ phases:
   build:
     commands:
       - echo Entered the unit tests build phase...
-      - java -jar target/*.jar --test
+      - mvn test
+
 reports:
   unit_tests:
     files:
-      - '**/*TEST*.xml'
+      - '**/TEST-*.xml'
     base-directory: 'target/surefire-reports'
     file-format: 'JUNIT'
