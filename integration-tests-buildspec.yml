@@ -25,11 +25,11 @@ reports:
   integration_tests:
     files:
       - '**/TEST-*.xml'
-    base-directory: 'target/failsafe-reports'
+    base-directory: 'target/surefire-reports'
     file-format: 'JUNIT'
 
 artifacts:
   files:
     - '**/TEST-*.xml'
-  base-directory: 'target/failsafe-reports'
+  base-directory: 'target/surefire-reports'
   name: IntegrationTestsReport
