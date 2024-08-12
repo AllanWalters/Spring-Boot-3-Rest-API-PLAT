@@ -1,0 +1,31 @@
+version: 0.2
+
+env:
+  variables:
+    APP_VERSION: BIGV1.0
+    APP_NAME: my-spring-boot-app
+
+phases:
+  install:
+    runtime-versions:
+      java: 17
+  pre_build:
+    commands:
+      - echo Entered the unit tests pre-build phase...
+      - which java
+      - java -version
+      - echo "Setting JAVA_HOME environment variable"
+      - export JAVA_HOME=/usr/lib/jvm/java-17
+      - export PATH=$JAVA_HOME/bin:$PATH
+      - mvn --version
+      - mvn clean
+  build:
+    commands:
+      - echo Entered the unit tests build phase...
+      - java -jar target/*.jar --test
+reports:
+  unit_tests:
+    files:
+      - '**/*TEST*.xml'
+    base-directory: 'target/surefire-reports'
+    file-format: 'JUNIT'
