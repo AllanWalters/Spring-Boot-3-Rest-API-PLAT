@@ -24,12 +24,12 @@ phases:
 reports:
   integration_tests:
     files:
-      - '**/*TEST*.xml'
+      - '**/TEST-*.xml'
     base-directory: 'target/failsafe-reports'
     file-format: 'JUNIT'
 
 artifacts:
   files:
-    - '**/*TEST*.xml'
+    - '**/TEST-*.xml'
   base-directory: 'target/failsafe-reports'
   name: IntegrationTestsReport
