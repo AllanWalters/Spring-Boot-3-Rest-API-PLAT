@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    APP_VERSION: BIGV1.00
+    APP_VERSION: BIGV1.0
     APP_NAME: my-spring-boot-app
 
 phases:
