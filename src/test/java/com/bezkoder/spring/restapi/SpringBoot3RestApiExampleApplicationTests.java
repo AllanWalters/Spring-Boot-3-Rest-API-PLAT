@@ -1,4 +1,4 @@
-package com.bezkoder.spring.restapi;
+packag com.bezkoder.spring.restapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
